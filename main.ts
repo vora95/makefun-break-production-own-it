@@ -26,10 +26,14 @@ import { mkdirSync, writeFileSync } from "node:fs";
 const TEXT =
   "I deleted the production database to save disk space, then deleted the backup too: it was also taking up disk space. I'm the incident now.";
 
-// The gate allows 1–200 Unicode code points: refuse to write anything else.
+// The gate allows 1–200 Unicode code points, single line only: refuse to
+// write anything else.
 const LENGTH = [...TEXT].length;
 if (LENGTH < 1 || LENGTH > 200) {
   throw new Error(`entry text is ${LENGTH} characters, outside 1–200`);
+}
+if (TEXT.includes("\n") || TEXT.trim() !== TEXT) {
+  throw new Error("entry text must be a single line with no surrounding whitespace");
 }
 
 mkdirSync("/output", { recursive: true });
