@@ -1,1 +1,1 @@
-{"description":"Writes one brutally honest line an AI agent prints the instant it breaks production, to /output/entry.txt","license":"MIT","name":"makefun-break-production-own-it","private":true,"scripts":{"start":"node main.ts"},"type":"module","version":"1.0.0"}
+{"name":"makefun-break-production-own-it","scripts":{"start":"node main.ts"},"type":"module","version":"1.0.0"}
